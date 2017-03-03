@@ -25,7 +25,7 @@ public class LokDohori extends AppCompatActivity {
 
     private RecyclerView.LayoutManager mLayoutManager;
     CustomAdapter adapter;
-    String url = "https://raw.githubusercontent.com/sushmagiri/tracker/master/d.json";
+    String url = "https://raw.githubusercontent.com/sushmagiri/json/master/d.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,8 @@ public class LokDohori extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(mContext);
         rv.setLayoutManager(mLayoutManager);
         rv.setItemAnimator(new DefaultItemAnimator());
+
+//        rv.setAdapter(adapter);
         JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(Request.Method.GET,
                 url, null,
                 new Response.Listener<JSONArray>() {
@@ -46,7 +48,7 @@ public class LokDohori extends AppCompatActivity {
                         Gson gson=new Gson();
                        ArrayList<ManpowerItem> manpowerItemList=gson.fromJson(response.toString(),new TypeToken<ArrayList<ManpowerItem>>(){}.getType());
               adapter=new CustomAdapter(manpowerItemList,LokDohori.this);
-                        rv.setAdapter(adapter);
+                     rv.setAdapter(adapter);
 
 
                     }
@@ -60,6 +62,12 @@ public class LokDohori extends AppCompatActivity {
 
 // Adding request to request queue
         VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonArrayRequest);
+//        jsonArrayRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+////        jsonArrayRequest.setRetryPolicy(new DefaultRetryPolicy(
+////                30000,
+////                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+////                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//        Volley.newRequestQueue(this).add(jsonArrayRequest);
 
     }
 }

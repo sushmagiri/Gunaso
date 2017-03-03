@@ -48,35 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-////        rv = (RecyclerView) findViewById(R.id.my_recycler_view);
-////        rv.setHasFixedSize(true);
-////        mLayoutManager = new LinearLayoutManager(mContext);
-////        rv.setLayoutManager(mLayoutManager);
-////        rv.setItemAnimator(new DefaultItemAnimator());
-//        JsonArrayRequest jsonArrayRequest= new JsonArrayRequest(Request.Method.GET,
-//                url, null,
-//                new Response.Listener<JSONArray>() {
-//
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//
-//                        Gson gson=new Gson();
-//                        ArrayList<ManpowerItem> manpowerItemList=gson.fromJson(response.toString(),new TypeToken<ArrayList<ManpowerItem>>(){}.getType());
-//                        adapter=new CustomAdapter(manpowerItemList);
-//
-//
-//
-//                    }
-//                }, new Response.ErrorListener() {
-//
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-//
-//// Adding request to request queue
-//        VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonArrayRequest);
 
     }
 

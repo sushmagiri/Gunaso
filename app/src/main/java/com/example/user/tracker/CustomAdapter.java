@@ -49,7 +49,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     @Override
     public int getItemCount() {
-        return entityArrayList.size();
+        int a ;
+
+        if(entityArrayList != null && !entityArrayList.isEmpty()) {
+
+            a = entityArrayList.size();
+        }
+        else {
+
+            a = 0;
+
+        }
+
+        return a;
 
     }
 
